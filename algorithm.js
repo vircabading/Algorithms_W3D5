@@ -76,7 +76,8 @@ const expected5 = "567765";
  * @returns {string} The longest palindromic substring from the given string.
  */
 function longestPalindromicSubstring(str) {
-    // pseudo
+    // pseudo code
+    // **** lack of knowledge ****
     // after got subtrings
     // check if each substring is palindrone
     // if substring is palindrome, check if its lengest palindrone
@@ -85,22 +86,21 @@ function longestPalindromicSubstring(str) {
     var longest_pali = "";
     var result = [];
 
-
-    for (var i = 0; i < str.length; i++) {
-        for (var j = i + 1; j < str.length + 1; j++) {
-            result.push(str.slice(i, j));
+    for (var i = 0; i < str.length; i++) {                      // loop through string
+        for (var j = i + 1; j < str.length + 1; j++) {          
+            result.push(str.slice(i, j));                       // memorize substring
         }
     }
     // console.log(result);
 
     for (var i=0; i<result.length; i++) {
-        if (isPalindrome(result[i])) {                      // check if palindrome
-            if ( result[i].length > longest_pali.length ) {         // check if this palindrome is longer than longest palindrome so far
-                longest_pali = result[i];
+        if (isPalindrome(result[i])) {                          // check if palindrome
+            if ( result[i].length > longest_pali.length ) {     // check if this palindrome is longer than longest palindrome so far
+                longest_pali = result[i];                       //      store the longest palindrome
             }
         }
     }
     return longest_pali; 
 }
 
-console.log(longestPalindromicSubstring(str4));
+console.log(longestPalindromicSubstring("abba"));
